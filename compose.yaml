@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  smokeping:
+    container_name: smokeping
+    image: jwigley/smokeping-speedtest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Yangon
+    ports:
+      - "8000:80"
+    volumes:
+      - ./config:/config
+      - ./data:/data
+    restart: unless-stopped
+
